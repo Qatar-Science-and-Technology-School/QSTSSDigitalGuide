@@ -83,16 +83,31 @@
   }
   .stem-icon {
     position: absolute;
-    opacity: 0.08;
+    opacity: 0.1;
     animation: stemFloat 20s ease-in-out infinite;
     will-change: transform;
+    transform: translate3d(0,0,0);
   }
-  body.light .stem-icon { opacity: 0.1; }
+  body.light .stem-icon { opacity: 0.12; }
   .stem-icon svg {
     width: 100%;
     height: 100%;
     fill: var(--secondary);
   }
+
+  .stem-word {
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    display: flex;
+    gap: 2px;
+    opacity: 0.15;
+  }
+  .stem-word span:nth-child(1) { color: #006837; } /* S */
+  .stem-word span:nth-child(2) { color: #3b5998; } /* T */
+  .stem-word span:nth-child(3) { color: #8c4122; } /* E */
+  .stem-word span:nth-child(4) { color: #662d91; } /* M */
+
 
   @keyframes stemFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -858,6 +873,20 @@
   <!-- Rocket -->
   <div class="stem-icon" style="width:70px;height:70px;bottom:10%;right:15%;animation:stemFloat2 20s infinite;">
     <svg viewBox="0 0 64 64"><path d="M32 4c-4 10-4 20-12 32h8v12l4 4 4-4V36h8c-8-12-8-22-12-32z"/></svg>
+  </div>
+  <!-- More Icons -->
+  <div class="stem-icon" style="width:50px;height:50px;top:40%;left:80%;animation:stemFloat 24s infinite 2s;">
+    <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 32h56M32 4v56M32 4c8 0 12 10 12 28s-4 28-12 28-12-10-12-28 4-28 12-28z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  </div>
+  <div class="stem-icon" style="width:45px;height:45px;top:60%;left:25%;animation:stemFloat2 19s infinite 5s;">
+    <svg viewBox="0 0 64 64"><path d="M32 6a18 18 0 0 1 10 33v5H22v-5A18 18 0 0 1 32 6zm-6 42h12v4H26v-4zm2 6h8v4h-8v-4z"/></svg>
+  </div>
+  <!-- Floating STEM Word -->
+  <div class="stem-icon stem-word" style="top:45%;left:45%;animation:stemFloat 30s infinite;">
+    <span>S</span><span>T</span><span>E</span><span>M</span>
+  </div>
+  <div class="stem-icon stem-word" style="bottom:20%;left:70%;animation:stemFloat2 28s infinite 10s; transform: scale(0.7);">
+    <span>S</span><span>T</span><span>E</span><span>M</span>
   </div>
 </div>
 
