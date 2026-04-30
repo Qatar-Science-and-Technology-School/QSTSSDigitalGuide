@@ -512,6 +512,58 @@
     display: inline-block;
   }
 
+  @media(max-width: 768px) {
+    .contact-table-wrap {
+      border: none;
+      background: transparent;
+      margin-bottom: 24px;
+    }
+    .contact-tbl thead {
+      display: none;
+    }
+    .contact-tbl, .contact-tbl tbody, .contact-tbl tr, .contact-tbl td {
+      display: block;
+      width: 100%;
+    }
+    .contact-tbl tr {
+      margin-bottom: 16px;
+      border: 1px solid rgba(14,165,233,.2);
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(26,58,110,.05), rgba(14,165,233,.05));
+    }
+    body.light .contact-tbl tr {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .contact-tbl td {
+      text-align: right;
+      padding: 12px 16px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .contact-tbl td:last-child {
+      border-bottom: none;
+    }
+    .contact-tbl td::before {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 2px;
+    }
+    .contact-tbl td:nth-child(1)::before { content: "الجانب"; }
+    .contact-tbl td:nth-child(2)::before { content: "الاسم"; }
+    .contact-tbl td:nth-child(3)::before { content: "المسمى الوظيفي"; }
+    .contact-tbl td:nth-child(4)::before { content: "الهاتف"; }
+    .contact-tbl td:nth-child(5)::before { content: "الإيميل"; }
+  }
+
   /* ── General Info Cards ── */
   .gen-info {
     display: grid;
