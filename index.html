@@ -95,19 +95,24 @@
     fill: var(--secondary);
   }
 
-  .stem-word {
+  .stem-word, .floating-word {
     font-weight: 900;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+    font-size: 2rem;
+    letter-spacing: 1px;
     display: flex;
-    gap: 2px;
-    opacity: 0.15;
-    direction: ltr; /* Fix for RTL reversing the word */
+    gap: 1px;
+    opacity: 0.12;
+    direction: ltr;
+    will-change: transform;
+    transform: translate3d(0,0,0);
   }
-  .stem-word span:nth-child(1) { color: #006837; } /* S */
-  .stem-word span:nth-child(2) { color: #3b5998; } /* T */
-  .stem-word span:nth-child(3) { color: #8c4122; } /* E */
-  .stem-word span:nth-child(4) { color: #662d91; } /* M */
+  .stem-word { font-size: 2.8rem; opacity: 0.15; }
+  
+  .stem-word span:nth-child(5n+1), .floating-word span:nth-child(5n+1) { color: #006837; } /* Science Green */
+  .stem-word span:nth-child(5n+2), .floating-word span:nth-child(5n+2) { color: #3b5998; } /* Tech Blue */
+  .stem-word span:nth-child(5n+3), .floating-word span:nth-child(5n+3) { color: #8c4122; } /* Eng Brown */
+  .stem-word span:nth-child(5n+4), .floating-word span:nth-child(5n+4) { color: #662d91; } /* Math Purple */
+  .stem-word span:nth-child(5n+5), .floating-word span:nth-child(5n+5) { color: #0ea5e9; } /* Accent Blue */
 
 
   @keyframes stemFloat {
@@ -888,6 +893,19 @@
   </div>
   <div class="stem-icon stem-word" style="bottom:20%;left:70%;animation:stemFloat2 28s infinite 10s; transform: scale(0.7);">
     <span>S</span><span>T</span><span>E</span><span>M</span>
+  </div>
+  <!-- New Floating Words -->
+  <div class="stem-icon floating-word" style="top:15%;left:15%;animation:stemFloat 35s infinite 2s;">
+    <span>S</span><span>c</span><span>i</span><span>e</span><span>n</span><span>c</span><span>e</span>
+  </div>
+  <div class="stem-icon floating-word" style="top:65%;right:10%;animation:stemFloat2 32s infinite 5s; transform: scale(0.85);">
+    <span>T</span><span>e</span><span>c</span><span>h</span><span>n</span><span>o</span><span>l</span><span>o</span><span>g</span><span>y</span>
+  </div>
+  <div class="stem-icon floating-word" style="bottom:5%;left:35%;animation:stemFloat 38s infinite 1s; transform: scale(0.9);">
+    <span>E</span><span>n</span><span>g</span><span>i</span><span>n</span><span>e</span><span>e</span><span>r</span><span>i</span><span>n</span><span>g</span>
+  </div>
+  <div class="stem-icon floating-word" style="top:8%;right:30%;animation:stemFloat2 25s infinite 8s; transform: scale(0.75);">
+    <span>M</span><span>a</span><span>t</span><span>h</span>
   </div>
 </div>
 
