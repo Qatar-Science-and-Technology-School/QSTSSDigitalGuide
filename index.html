@@ -378,6 +378,7 @@
   .res-list li a { color: var(--secondary); text-decoration: none; font-weight: 700; transition: color .2s; display: block; }
   .res-list li a:hover { color: #38bdf8; text-decoration: underline; }
   .res-list li .li-desc { color: var(--muted); font-size: 0.85rem; display: block; margin-top: 4px; }
+  .res-list li.clickable { cursor: pointer; }
   body.light .res-list li { background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 
   /* ── Modern Grade Tabs ── */
@@ -1389,6 +1390,20 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Make entire resource cards (and their icons) clickable ──
+  document.querySelectorAll('.res-list li').forEach(li => {
+    const link = li.querySelector('a');
+    if (link) {
+      li.classList.add('clickable');
+      li.addEventListener('click', (e) => {
+        // Only trigger if they didn't click the link text itself
+        if (e.target.tagName.toLowerCase() !== 'a') {
+          window.open(link.href, link.target || '_self');
+        }
+      });
+    }
+  });
   // ── Smart Device Detection ──
   function detectDevice() {
     // Detect mobile based on user agent or screen width
