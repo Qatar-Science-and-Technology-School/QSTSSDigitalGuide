@@ -12,7 +12,7 @@
     --primary: #1a3a6e;
     --secondary: #0ea5e9;
     --accent: #f59e0b;
-    --bg: #0f172a;
+    --bg: #4169E1;
     --card-bg: rgba(255,255,255,0.05);
     --glass: rgba(255,255,255,0.08);
     --text: #e2e8f0;
@@ -189,10 +189,10 @@
   nav a {
     color: var(--muted);
     text-decoration: none;
-    font-size: .82rem;
+    font-size: 1.64rem;
     font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 50px;
+    padding: 12px 32px;
+    border-radius: 100px;
     border: 1px solid transparent;
     transition: all .25s;
   }
@@ -204,19 +204,24 @@
 
   /* ── Theme Toggle ── */
   #themeToggle {
-    margin-right: auto;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
     background: var(--glass);
     border: 1px solid var(--card-border);
-    border-radius: 50px;
-    padding: 6px 14px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-    font-size: .82rem;
-    font-family: 'Cairo', sans-serif;
+    font-size: 1.5rem;
     color: var(--text);
-    display: flex; align-items: center; gap: 6px;
+    display: flex; align-items: center; justify-content: center;
     transition: all .25s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
-  #themeToggle:hover { border-color: rgba(14,165,233,.5); background: rgba(14,165,233,.1); }
+  #themeToggle:hover { border-color: rgba(14,165,233,.5); background: rgba(14,165,233,.1); transform: scale(1.05); }
 
   /* ── Container ── */
   .container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
@@ -281,11 +286,11 @@
     background: rgba(14,165,233,.15);
     border: 1px solid rgba(14,165,233,.3);
     color: var(--secondary);
-    font-size: .72rem;
-    padding: 3px 10px;
+    font-size: 1.44rem;
+    padding: 6px 16px;
     border-radius: 50px;
     margin-bottom: 12px;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   /* ── Credentials ── */
@@ -322,20 +327,22 @@
     color: var(--text);
     transition: background .2s;
   }
+  .res-list li a { color: var(--secondary); text-decoration: none; font-weight: 700; transition: color .2s; }
+  .res-list li a:hover { color: #38bdf8; text-decoration: underline; }
   .res-list li:hover { background: rgba(14,165,233,.08); }
   .res-list li::before { content: '◀'; color: var(--secondary); flex-shrink: 0; margin-top: 1px; }
 
   /* ── Grade Tabs ── */
   .tabs { display: flex; gap: 10px; margin-bottom: 24px; }
   .tab-btn {
-    padding: 8px 22px;
-    border-radius: 50px;
+    padding: 24px 60px;
+    border-radius: 100px;
     border: 1px solid var(--tab-border);
     background: transparent;
     color: var(--muted);
     font-family: 'Cairo', sans-serif;
-    font-size: .88rem;
-    font-weight: 600;
+    font-size: 3.52rem;
+    font-weight: 700;
     cursor: pointer;
     transition: all .25s;
   }
@@ -672,9 +679,11 @@
   <div class="hero-divider"></div>
 </header>
 
+<!-- ══ THEME TOGGLE ══ -->
+<button id="themeToggle" onclick="toggleTheme()" title="تبديل المظهر">🌙</button>
+
 <!-- ══ NAV ══ -->
 <nav id="navbar">
-  <button id="themeToggle" onclick="toggleTheme()" title="تبديل المظهر">🌙 <span id="themeLabel">الوضع الليلي</span></button>
   <a href="#links">🔗 روابط المدرسة</a>
   <a href="#books">📚 الكتب الدراسية</a>
   <a href="#english">🌐 اللغة الإنجليزية</a>
@@ -682,6 +691,8 @@
   <a href="#coding">💻 البرمجة</a>
   <a href="#design">🎨 التصميم ثلاثي الأبعاد</a>
   <a href="#contact">📞 التواصل</a>
+  <a href="#">📄 الدليل الإرشادي PDF</a>
+  <a href="#">📝 تحديث بيانات ولي الأمر</a>
 </nav>
 
 <!-- ══ MAIN LINKS ══ -->
@@ -780,18 +791,18 @@
 
     <div id="english-g7" class="tab-content active">
       <ul class="res-list">
-        <li>Duolingo — تطبيق ممتع للتعلم اليومي</li>
-        <li>Khan Academy Kids / Reading</li>
-        <li>ReadTheory — مستوى مبتدئ</li>
+        <li><a href="https://www.duolingo.com/" target="_blank">Duolingo</a> — تطبيق ممتع للتعلم اليومي</li>
+        <li><a href="https://learn.khanacademy.org/khan-academy-kids/" target="_blank">Khan Academy Kids</a> / Reading</li>
+        <li><a href="https://readtheory.org/" target="_blank">ReadTheory</a> — مستوى مبتدئ</li>
         <li>قراءة قصص: Diary of a Wimpy Kid, Magic Tree House, Percy Jackson</li>
-        <li>مشاهدة قنوات تعليمية للأطفال (BBC Learning English Kids)</li>
+        <li><a href="https://www.youtube.com/user/bbclearningenglish" target="_blank">مشاهدة قنوات تعليمية للأطفال (BBC Learning English Kids)</a></li>
       </ul>
     </div>
     <div id="english-g9" class="tab-content">
       <ul class="res-list">
-        <li>Oxford Online English</li>
-        <li>British Council LearnEnglish</li>
-        <li>ReadTheory — مستوى متقدم</li>
+        <li><a href="https://www.oxfordonlineenglish.com/" target="_blank">Oxford Online English</a></li>
+        <li><a href="https://learnenglish.britishcouncil.org/" target="_blank">British Council LearnEnglish</a></li>
+        <li><a href="https://readtheory.org/" target="_blank">ReadTheory</a> — مستوى متقدم</li>
         <li>قراءة روايات قصيرة: To Kill a Mockingbird, Of Mice and Men</li>
         <li>أفلام وثائقية: National Geographic, BBC Earth (مع ترجمة إنجليزية)</li>
       </ul>
@@ -815,19 +826,19 @@
 
     <div id="math-g7" class="tab-content active">
       <ul class="res-list">
-        <li>Khan Academy — 7th Grade Math course (مجاني)</li>
-        <li>IXL Math — مستوى Grade 6/7</li>
-        <li>Math Games (Grade 6/7) — تعلّم باللعب</li>
-        <li>Prodigy Math — لعبة رياضيات تفاعلية</li>
+        <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a> — 7th Grade Math course (مجاني)</li>
+        <li><a href="https://www.ixl.com/math/" target="_blank">IXL Math</a> — مستوى Grade 6/7</li>
+        <li><a href="https://www.mathgames.com/" target="_blank">Math Games</a> (Grade 6/7) — تعلّم باللعب</li>
+        <li><a href="https://www.prodigygame.com/" target="_blank">Prodigy Math</a> — لعبة رياضيات تفاعلية</li>
         <li>تطبيق المسائل الكلامية لتعويد العقل على التفكير الرياضي بالإنجليزية</li>
       </ul>
     </div>
     <div id="math-g9" class="tab-content">
       <ul class="res-list">
-        <li>Khan Academy — Algebra 1 + Geometry</li>
-        <li>IXL Math — مستوى Grade 8/9</li>
-        <li>Math Games — Grade 8</li>
-        <li>Brilliant.org — مسائل تحدّي يومية</li>
+        <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a> — Algebra 1 + Geometry</li>
+        <li><a href="https://www.ixl.com/math/" target="_blank">IXL Math</a> — مستوى Grade 8/9</li>
+        <li><a href="https://www.mathgames.com/" target="_blank">Math Games</a> — Grade 8</li>
+        <li><a href="https://brilliant.org/" target="_blank">Brilliant.org</a> — مسائل تحدّي يومية</li>
         <li>تطبيقات SAT Math التمهيدية</li>
       </ul>
     </div>
@@ -850,20 +861,20 @@
 
     <div id="coding-g7" class="tab-content active">
       <ul class="res-list">
-        <li>Scratch (MIT) — البرمجة بالكتل، ممتاز للمبتدئين</li>
-        <li>Code.org — Hour of Code وحلقات تعلّم متدرّجة</li>
-        <li>Tynker — مشاريع برمجية تفاعلية</li>
-        <li>Khan Academy — مقدمة في البرمجة بـ JavaScript</li>
-        <li>Microsoft MakeCode — برمجة الروبوتات والألعاب</li>
+        <li><a href="https://scratch.mit.edu/" target="_blank">Scratch (MIT)</a> — البرمجة بالكتل، ممتاز للمبتدئين</li>
+        <li><a href="https://code.org/" target="_blank">Code.org</a> — Hour of Code وحلقات تعلّم متدرّجة</li>
+        <li><a href="https://www.tynker.com/" target="_blank">Tynker</a> — مشاريع برمجية تفاعلية</li>
+        <li><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy</a> — مقدمة في البرمجة بـ JavaScript</li>
+        <li><a href="https://www.microsoft.com/en-us/makecode" target="_blank">Microsoft MakeCode</a> — برمجة الروبوتات والألعاب</li>
       </ul>
     </div>
     <div id="coding-g9" class="tab-content">
       <ul class="res-list">
-        <li>Codecademy — مسار Python للمبتدئين</li>
-        <li>Khan Academy — Computer Programming</li>
-        <li>freeCodeCamp.org — مسارات شاملة</li>
-        <li>Replit — تجربة Python مباشرة في المتصفح</li>
-        <li>Udacity — مسارات مهنية متخصصة</li>
+        <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a> — مسار Python للمبتدئين</li>
+        <li><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy</a> — Computer Programming</li>
+        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp.org</a> — مسارات شاملة</li>
+        <li><a href="https://replit.com/" target="_blank">Replit</a> — تجربة Python مباشرة في المتصفح</li>
+        <li><a href="https://www.udacity.com/" target="_blank">Udacity</a> — مسارات مهنية متخصصة</li>
       </ul>
     </div>
   </div>
@@ -885,19 +896,19 @@
 
     <div id="design-g7" class="tab-content active">
       <ul class="res-list">
-        <li>Tinkercad (Autodesk) — الأنسب لهذا العمر، يعمل في المتصفح</li>
-        <li>3D Slash — واجهة لعبة بسيطة وممتعة</li>
-        <li>BlocksCAD — تصميم بالبرمجة بالكتل</li>
-        <li>SketchUp Free — للتصميم المعماري البسيط</li>
+        <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad (Autodesk)</a> — الأنسب لهذا العمر، يعمل في المتصفح</li>
+        <li><a href="https://www.3dslash.net/" target="_blank">3D Slash</a> — واجهة لعبة بسيطة وممتعة</li>
+        <li><a href="https://www.blockscad3d.com/" target="_blank">BlocksCAD</a> — تصميم بالبرمجة بالكتل</li>
+        <li><a href="https://www.sketchup.com/" target="_blank">SketchUp Free</a> — للتصميم المعماري البسيط</li>
         <li>ابدأ بتصميم: مفتاح، حامل قلم، لعبة بسيطة</li>
       </ul>
     </div>
     <div id="design-g9" class="tab-content">
       <ul class="res-list">
-        <li>Onshape — CAD سحابي احترافي مجاني للطلاب</li>
-        <li>Fusion 360 — مجاني للطلاب والمعلمين</li>
-        <li>Tinkercad — للبدء السريع قبل Onshape</li>
-        <li>FreeCAD — خيار مفتوح المصدر</li>
+        <li><a href="https://www.onshape.com/en/education/" target="_blank">Onshape</a> — CAD سحابي احترافي مجاني للطلاب</li>
+        <li><a href="https://www.autodesk.com/education/edu-software/overview" target="_blank">Fusion 360</a> — مجاني للطلاب والمعلمين</li>
+        <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a> — للبدء السريع قبل Onshape</li>
+        <li><a href="https://www.freecadweb.org/" target="_blank">FreeCAD</a> — خيار مفتوح المصدر</li>
         <li>ابدأ بمشروع متكامل: تصميم نموذج لمشكلة هندسية</li>
       </ul>
     </div>
@@ -1014,17 +1025,13 @@
   function toggleTheme() {
     const isLight = document.body.classList.toggle('light');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    document.getElementById('themeLabel').textContent = isLight ? 'الوضع الليلي' : 'الوضع النهاري';
-    document.getElementById('themeToggle').querySelector(':first-child') || null;
-    document.getElementById('themeToggle').innerHTML = isLight
-      ? '☀️ <span id="themeLabel">الوضع الليلي</span>'
-      : '🌙 <span id="themeLabel">الوضع النهاري</span>';
+    document.getElementById('themeToggle').innerHTML = isLight ? '☀️' : '🌙';
   }
   // Restore saved theme
   (function(){
     if (localStorage.getItem('theme') === 'light') {
       document.body.classList.add('light');
-      document.getElementById('themeToggle').innerHTML = '☀️ <span id="themeLabel">الوضع الليلي</span>';
+      document.getElementById('themeToggle').innerHTML = '☀️';
     }
   })();
 
