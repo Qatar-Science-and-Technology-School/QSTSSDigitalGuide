@@ -333,7 +333,7 @@
   .res-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
   .res-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 14px;
     padding: 18px 20px;
     background: var(--card-bg);
@@ -352,19 +352,32 @@
     color: #fff;
     font-size: 0.75rem;
     background: var(--gradient);
-    width: 30px; height: 30px;
+    min-width: 30px; height: 30px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
     box-shadow: 0 4px 10px rgba(14,165,233,0.35);
+    margin-top: 2px;
+  }
+  /* Inner content: link on first line, text below */
+  .res-list li > span,
+  .res-list li > a ~ *,
+  .res-list li {
+    flex-direction: row;
+  }
+  .res-list li .li-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   .res-list li:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 28px rgba(14,165,233,0.2);
     border-color: rgba(14,165,233,0.4);
   }
-  .res-list li a { color: var(--secondary); text-decoration: none; font-weight: 700; transition: color .2s; }
+  .res-list li a { color: var(--secondary); text-decoration: none; font-weight: 700; transition: color .2s; display: block; }
   .res-list li a:hover { color: #38bdf8; text-decoration: underline; }
+  .res-list li .li-desc { color: var(--muted); font-size: 0.85rem; display: block; margin-top: 4px; }
   body.light .res-list li { background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 
   /* ── Modern Grade Tabs ── */
@@ -1022,20 +1035,20 @@
 
     <div id="english-g7" class="tab-content active">
       <ul class="res-list">
-        <li><a href="https://www.duolingo.com/" target="_blank">Duolingo</a> — تطبيق ممتع للتعلم اليومي</li>
-        <li><a href="https://learn.khanacademy.org/khan-academy-kids/" target="_blank">Khan Academy Kids</a> / Reading</li>
-        <li><a href="https://readtheory.org/" target="_blank">ReadTheory</a> — مستوى مبتدئ</li>
-        <li>قراءة قصص: Diary of a Wimpy Kid, Magic Tree House, Percy Jackson</li>
-        <li><a href="https://www.youtube.com/user/bbclearningenglish" target="_blank">مشاهدة قنوات تعليمية للأطفال (BBC Learning English Kids)</a></li>
+        <li><div class="li-inner"><a href="https://www.duolingo.com/" target="_blank">Duolingo</a><span class="li-desc">تطبيق ممتع للتعلم اليومي</span></div></li>
+        <li><div class="li-inner"><a href="https://learn.khanacademy.org/khan-academy-kids/" target="_blank">Khan Academy Kids</a><span class="li-desc">Reading</span></div></li>
+        <li><div class="li-inner"><a href="https://readtheory.org/" target="_blank">ReadTheory</a><span class="li-desc">مستوى مبتدئ</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">قراءة قصص: Diary of a Wimpy Kid, Magic Tree House, Percy Jackson</span></div></li>
+        <li><div class="li-inner"><a href="https://www.youtube.com/user/bbclearningenglish" target="_blank">BBC Learning English Kids</a><span class="li-desc">مشاهدة قنوات تعليمية للأطفال</span></div></li>
       </ul>
     </div>
     <div id="english-g9" class="tab-content">
       <ul class="res-list">
-        <li><a href="https://www.oxfordonlineenglish.com/" target="_blank">Oxford Online English</a></li>
-        <li><a href="https://learnenglish.britishcouncil.org/" target="_blank">British Council LearnEnglish</a></li>
-        <li><a href="https://readtheory.org/" target="_blank">ReadTheory</a> — مستوى متقدم</li>
-        <li>قراءة روايات قصيرة: To Kill a Mockingbird, Of Mice and Men</li>
-        <li>أفلام وثائقية: National Geographic, BBC Earth (مع ترجمة إنجليزية)</li>
+        <li><div class="li-inner"><a href="https://www.oxfordonlineenglish.com/" target="_blank">Oxford Online English</a><span class="li-desc">تعلم الإنجليزية بشكل احترافي</span></div></li>
+        <li><div class="li-inner"><a href="https://learnenglish.britishcouncil.org/" target="_blank">British Council LearnEnglish</a><span class="li-desc">موارد تعليمية من المجلس الثقافي البريطاني</span></div></li>
+        <li><div class="li-inner"><a href="https://readtheory.org/" target="_blank">ReadTheory</a><span class="li-desc">مستوى متقدم</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">قراءة روايات قصيرة: To Kill a Mockingbird, Of Mice and Men</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">أفلام وثائقية: National Geographic, BBC Earth (مع ترجمة إنجليزية)</span></div></li>
       </ul>
     </div>
   </div>
@@ -1057,20 +1070,20 @@
 
     <div id="math-g7" class="tab-content active">
       <ul class="res-list">
-        <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a> — 7th Grade Math course (مجاني)</li>
-        <li><a href="https://www.ixl.com/math/" target="_blank">IXL Math</a> — مستوى Grade 6/7</li>
-        <li><a href="https://www.mathgames.com/" target="_blank">Math Games</a> (Grade 6/7) — تعلّم باللعب</li>
-        <li><a href="https://www.prodigygame.com/" target="_blank">Prodigy Math</a> — لعبة رياضيات تفاعلية</li>
-        <li>تطبيق المسائل الكلامية لتعويد العقل على التفكير الرياضي بالإنجليزية</li>
+        <li><div class="li-inner"><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a><span class="li-desc">7th Grade Math course (مجاني)</span></div></li>
+        <li><div class="li-inner"><a href="https://www.ixl.com/math/" target="_blank">IXL Math</a><span class="li-desc">مستوى Grade 6/7</span></div></li>
+        <li><div class="li-inner"><a href="https://www.mathgames.com/" target="_blank">Math Games</a><span class="li-desc">(Grade 6/7) — تعلّم باللعب</span></div></li>
+        <li><div class="li-inner"><a href="https://www.prodigygame.com/" target="_blank">Prodigy Math</a><span class="li-desc">لعبة رياضيات تفاعلية</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">تطبيق المسائل الكلامية لتعويد العقل على التفكير الرياضي بالإنجليزية</span></div></li>
       </ul>
     </div>
     <div id="math-g9" class="tab-content">
       <ul class="res-list">
-        <li><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a> — Algebra 1 + Geometry</li>
-        <li><a href="https://www.ixl.com/math/" target="_blank">IXL Math</a> — مستوى Grade 8/9</li>
-        <li><a href="https://www.mathgames.com/" target="_blank">Math Games</a> — Grade 8</li>
-        <li><a href="https://brilliant.org/" target="_blank">Brilliant.org</a> — مسائل تحدّي يومية</li>
-        <li>تطبيقات SAT Math التمهيدية</li>
+        <li><div class="li-inner"><a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a><span class="li-desc">Algebra 1 + Geometry</span></div></li>
+        <li><div class="li-inner"><a href="https://www.ixl.com/math/" target="_blank">IXL Math</a><span class="li-desc">مستوى Grade 8/9</span></div></li>
+        <li><div class="li-inner"><a href="https://www.mathgames.com/" target="_blank">Math Games</a><span class="li-desc">Grade 8</span></div></li>
+        <li><div class="li-inner"><a href="https://brilliant.org/" target="_blank">Brilliant.org</a><span class="li-desc">مسائل تحدّي يومية</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">تطبيقات SAT Math التمهيدية</span></div></li>
       </ul>
     </div>
   </div>
@@ -1092,20 +1105,20 @@
 
     <div id="coding-g7" class="tab-content active">
       <ul class="res-list">
-        <li><a href="https://scratch.mit.edu/" target="_blank">Scratch (MIT)</a> — البرمجة بالكتل، ممتاز للمبتدئين</li>
-        <li><a href="https://code.org/" target="_blank">Code.org</a> — Hour of Code وحلقات تعلّم متدرّجة</li>
-        <li><a href="https://www.tynker.com/" target="_blank">Tynker</a> — مشاريع برمجية تفاعلية</li>
-        <li><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy</a> — مقدمة في البرمجة بـ JavaScript</li>
-        <li><a href="https://www.microsoft.com/en-us/makecode" target="_blank">Microsoft MakeCode</a> — برمجة الروبوتات والألعاب</li>
+        <li><div class="li-inner"><a href="https://scratch.mit.edu/" target="_blank">Scratch (MIT)</a><span class="li-desc">البرمجة بالكتل، ممتاز للمبتدئين</span></div></li>
+        <li><div class="li-inner"><a href="https://code.org/" target="_blank">Code.org</a><span class="li-desc">Hour of Code وحلقات تعلّم متدرّجة</span></div></li>
+        <li><div class="li-inner"><a href="https://www.tynker.com/" target="_blank">Tynker</a><span class="li-desc">مشاريع برمجية تفاعلية</span></div></li>
+        <li><div class="li-inner"><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy</a><span class="li-desc">مقدمة في البرمجة بـ JavaScript</span></div></li>
+        <li><div class="li-inner"><a href="https://www.microsoft.com/en-us/makecode" target="_blank">Microsoft MakeCode</a><span class="li-desc">برمجة الروبوتات والألعاب</span></div></li>
       </ul>
     </div>
     <div id="coding-g9" class="tab-content">
       <ul class="res-list">
-        <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a> — مسار Python للمبتدئين</li>
-        <li><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy</a> — Computer Programming</li>
-        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp.org</a> — مسارات شاملة</li>
-        <li><a href="https://replit.com/" target="_blank">Replit</a> — تجربة Python مباشرة في المتصفح</li>
-        <li><a href="https://www.udacity.com/" target="_blank">Udacity</a> — مسارات مهنية متخصصة</li>
+        <li><div class="li-inner"><a href="https://www.codecademy.com/" target="_blank">Codecademy</a><span class="li-desc">مسار Python للمبتدئين</span></div></li>
+        <li><div class="li-inner"><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy</a><span class="li-desc">Computer Programming</span></div></li>
+        <li><div class="li-inner"><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp.org</a><span class="li-desc">مسارات شاملة</span></div></li>
+        <li><div class="li-inner"><a href="https://replit.com/" target="_blank">Replit</a><span class="li-desc">تجربة Python مباشرة في المتصفح</span></div></li>
+        <li><div class="li-inner"><a href="https://www.udacity.com/" target="_blank">Udacity</a><span class="li-desc">مسارات مهنية متخصصة</span></div></li>
       </ul>
     </div>
   </div>
@@ -1127,20 +1140,20 @@
 
     <div id="design-g7" class="tab-content active">
       <ul class="res-list">
-        <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad (Autodesk)</a> — الأنسب لهذا العمر، يعمل في المتصفح</li>
-        <li><a href="https://www.3dslash.net/" target="_blank">3D Slash</a> — واجهة لعبة بسيطة وممتعة</li>
-        <li><a href="https://www.blockscad3d.com/" target="_blank">BlocksCAD</a> — تصميم بالبرمجة بالكتل</li>
-        <li><a href="https://www.sketchup.com/" target="_blank">SketchUp Free</a> — للتصميم المعماري البسيط</li>
-        <li>ابدأ بتصميم: مفتاح، حامل قلم، لعبة بسيطة</li>
+        <li><div class="li-inner"><a href="https://www.tinkercad.com/" target="_blank">Tinkercad (Autodesk)</a><span class="li-desc">الأنسب لهذا العمر، يعمل في المتصفح</span></div></li>
+        <li><div class="li-inner"><a href="https://www.3dslash.net/" target="_blank">3D Slash</a><span class="li-desc">واجهة لعبة بسيطة وممتعة</span></div></li>
+        <li><div class="li-inner"><a href="https://www.blockscad3d.com/" target="_blank">BlocksCAD</a><span class="li-desc">تصميم بالبرمجة بالكتل</span></div></li>
+        <li><div class="li-inner"><a href="https://www.sketchup.com/" target="_blank">SketchUp Free</a><span class="li-desc">للتصميم المعماري البسيط</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">ابدأ بتصميم: مفتاح، حامل قلم، لعبة بسيطة</span></div></li>
       </ul>
     </div>
     <div id="design-g9" class="tab-content">
       <ul class="res-list">
-        <li><a href="https://www.onshape.com/en/education/" target="_blank">Onshape</a> — CAD سحابي احترافي مجاني للطلاب</li>
-        <li><a href="https://www.autodesk.com/education/edu-software/overview" target="_blank">Fusion 360</a> — مجاني للطلاب والمعلمين</li>
-        <li><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a> — للبدء السريع قبل Onshape</li>
-        <li><a href="https://www.freecadweb.org/" target="_blank">FreeCAD</a> — خيار مفتوح المصدر</li>
-        <li>ابدأ بمشروع متكامل: تصميم نموذج لمشكلة هندسية</li>
+        <li><div class="li-inner"><a href="https://www.onshape.com/en/education/" target="_blank">Onshape</a><span class="li-desc">CAD سحابي احترافي مجاني للطلاب</span></div></li>
+        <li><div class="li-inner"><a href="https://www.autodesk.com/education/edu-software/overview" target="_blank">Fusion 360</a><span class="li-desc">مجاني للطلاب والمعلمين</span></div></li>
+        <li><div class="li-inner"><a href="https://www.tinkercad.com/" target="_blank">Tinkercad</a><span class="li-desc">للبدء السريع قبل Onshape</span></div></li>
+        <li><div class="li-inner"><a href="https://www.freecadweb.org/" target="_blank">FreeCAD</a><span class="li-desc">خيار مفتوح المصدر</span></div></li>
+        <li><div class="li-inner"><span class="li-desc">ابدأ بمشروع متكامل: تصميم نموذج لمشكلة هندسية</span></div></li>
       </ul>
     </div>
   </div>
