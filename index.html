@@ -789,14 +789,51 @@
   }
 
   /* ── Smart View Enhancements ── */
+  #mobileMenuBtn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  body.mobile-view #mobileMenuBtn {
+    display: flex;
+  }
+
+  body.mobile-view #themeToggle {
+    right: 80px;
+  }
+
   body.mobile-view .stem-icon {
     display: none !important; /* Improve performance on mobile */
   }
   body.mobile-view nav {
     flex-direction: column;
     border-radius: 16px;
-    width: 100%;
+    width: 250px;
     gap: 12px;
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    transition: right 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+    padding: 20px;
+  }
+  body.mobile-view nav.show {
+    right: 20px;
   }
   body.mobile-view nav a {
     width: 100%;
@@ -972,6 +1009,9 @@
 
 <!-- ══ THEME TOGGLE ══ -->
 <button id="themeToggle" onclick="toggleTheme()" title="تبديل المظهر">🌙</button>
+
+<!-- ══ MOBILE MENU BUTTON ══ -->
+<button id="mobileMenuBtn" onclick="toggleMobileMenu()" title="القائمة">☰</button>
 
 <!-- ══ NAV ══ -->
 <nav id="navbar">
@@ -1337,6 +1377,16 @@
     event.currentTarget.closest('.container').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     event.currentTarget.classList.add('active');
   }
+
+  // ── Mobile Menu ──
+  function toggleMobileMenu() {
+    document.getElementById('navbar').classList.toggle('show');
+  }
+  document.querySelectorAll('#navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navbar').classList.remove('show');
+    });
+  });
 
   // ── Scroll reveal ──
   const observer = new IntersectionObserver((entries) => {
