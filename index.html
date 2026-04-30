@@ -75,80 +75,7 @@
     z-index: 2;
   }
 
-  /* ── Floating STEM Icons ── */
-  .stem-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .stem-icon {
-    position: absolute;
-    opacity: 0.12;
-    animation: stemFloat 20s ease-in-out infinite;
-    will-change: transform;
-  }
-  body.light .stem-icon { opacity: 0.14; }
-  .stem-icon svg {
-    width: 100%;
-    height: 100%;
-    fill: var(--secondary);
-  }
-  .stem-icon:nth-child(even) svg { fill: var(--primary); }
-  .stem-icon:nth-child(3n) svg { fill: var(--accent); }
 
-  body:not(.light) .stem-icon svg,
-  body:not(.light) .stem-icon svg * {
-    fill: #ffffff !important;
-    stroke: #ffffff !important;
-    color: #ffffff !important;
-  }
-
-  @keyframes stemFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-60px) rotate(15deg); }
-    50% { transform: translateY(-30px) rotate(-10deg); }
-    75% { transform: translateY(-80px) rotate(20deg); }
-  }
-  @keyframes stemFloat2 {
-    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-    33% { transform: translateY(-50px) rotate(-20deg) scale(1.1); }
-    66% { transform: translateY(-100px) rotate(15deg) scale(0.9); }
-  }
-  @keyframes stemFloat3 {
-    0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
-    50% { transform: translateX(40px) translateY(-70px) rotate(-25deg); }
-  }
-
-  /* ── Draggable STEM Logo ── */
-  .stem-logo-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 4px;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.05);
-    padding: 2px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .logo-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    color: #fff;
-    font-size: 1rem;
-  }
-  .logo-box.science { background: #006837; }
-  .logo-box.tech { background: #3b5998; }
-  .logo-box.eng { background: #8c4122; }
-  .logo-box.math { background: #662d91; }
-  .logo-box svg { width: 80%; height: 80%; fill: #fff; }
-
-  .stem-icon { pointer-events: none; }
 
   /* ── Background ── */
   body::before {
@@ -849,9 +776,7 @@
     top: 90px;
   }
 
-  body.mobile-view .stem-icon {
-    display: none !important; /* Improve performance on mobile */
-  }
+
   body.mobile-view nav {
     flex-direction: column;
     border-radius: 16px;
@@ -888,18 +813,6 @@
 </head>
 <body class="light">
 
-<!-- ══ FLOATING STEM BACKGROUND ICONS ══ -->
-<div class="stem-bg" aria-hidden="true">
-  <!-- Single, optimized floating STEM logo -->
-  <div class="stem-icon draggable-target" style="width:120px;height:120px;top:20%;left:45%;animation:stemFloat 25s ease-in-out infinite;">
-    <div class="stem-logo-group">
-      <div class="logo-box science">⚛</div>
-      <div class="logo-box tech">🌐</div>
-      <div class="logo-box eng">⚙</div>
-      <div class="logo-box math">π</div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ LOGOS BAR ══ -->
 <div class="logos-bar">
