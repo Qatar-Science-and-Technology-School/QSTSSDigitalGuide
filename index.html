@@ -198,18 +198,22 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
   nav a {
-    color: var(--muted);
+    color: var(--text);
     text-decoration: none;
     font-size: 0.9rem;
-    padding: 8px 20px;
+    padding: 10px 24px;
     border-radius: 50px;
-    background: transparent;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   nav a:hover {
-    color: var(--text);
-    background: rgba(56, 189, 248, 0.15);
-    transform: translateY(-2px);
+    background: var(--gradient);
+    color: #fff !important;
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
   }
 
   /* ── Theme Toggle ── */
