@@ -330,21 +330,22 @@
   }
 
   /* ── Resource List ── */
-  .res-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .res-list { list-style: none; display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; }
   .res-list li {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 10px 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px;
     background: var(--res-bg);
     border: 1px solid var(--res-border);
     border-radius: 10px;
     font-size: .87rem;
     color: var(--text);
     transition: background .2s;
+    width: fit-content;
   }
   .res-list li a { color: var(--secondary); text-decoration: none; font-weight: 700; transition: color .2s; }
   .res-list li a:hover { color: #38bdf8; text-decoration: underline; }
   .res-list li:hover { background: rgba(14,165,233,.08); }
-  .res-list li::before { content: '◀'; color: var(--secondary); flex-shrink: 0; margin-top: 1px; }
+  .res-list li::before { content: '◀'; color: var(--secondary); flex-shrink: 0; }
 
   /* ── Modern Grade Tabs ── */
   .tabs {
