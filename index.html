@@ -379,6 +379,7 @@
   .res-list li a:hover { color: #38bdf8; text-decoration: underline; }
   .res-list li .li-desc { color: var(--muted); font-size: 0.85rem; display: block; margin-top: 4px; }
   .res-list li.clickable { cursor: pointer; }
+  .res-list li.clickable:hover::before { transform: scale(1.2); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
   body.light .res-list li { background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 
   /* ── Modern Grade Tabs ── */
@@ -1391,19 +1392,35 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Make entire resource cards (and their icons) clickable ──
-  document.querySelectorAll('.res-list li').forEach(li => {
-    const link = li.querySelector('a');
-    if (link) {
-      li.classList.add('clickable');
-      li.addEventListener('click', (e) => {
-        // Only trigger if they didn't click the link text itself
-        if (e.target.tagName.toLowerCase() !== 'a') {
-          window.open(link.href, link.target || '_self');
+  // ── Make entire cards (including icons) clickable ──
+  function initClickableCards() {
+    const selectors = ['.res-list li', '.card', '.book-card'];
+    selectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        const link = el.querySelector('a');
+        if (link && !el.classList.contains('js-clickable')) {
+          el.classList.add('js-clickable');
+          el.style.cursor = 'pointer';
+          el.addEventListener('click', (e) => {
+            // Don't trigger if the user clicked the actual link or a button inside
+            if (e.target.tagName.toLowerCase() !== 'a' && !e.target.closest('a')) {
+              window.open(link.href, link.target || '_self');
+            }
+          });
         }
       });
-    }
-  });
+    });
+  }
+
+  // Initialize on load
+  window.addEventListener('DOMContentLoaded', initClickableCards);
+  // Re-initialize when tabs change to ensure any new content is covered
+  const originalSwitchTab = switchTab;
+  switchTab = function(section, grade) {
+    originalSwitchTab(section, grade);
+    setTimeout(initClickableCards, 100);
+  };
+
   // ── Smart Device Detection ──
   function detectDevice() {
     // Detect mobile based on user agent or screen width
