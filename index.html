@@ -787,6 +787,34 @@
     color: #0284c7;
     border-color: rgba(0,0,0,0.1);
   }
+
+  /* ── Smart View Enhancements ── */
+  body.mobile-view .stem-icon {
+    display: none !important; /* Improve performance on mobile */
+  }
+  body.mobile-view nav {
+    flex-direction: column;
+    border-radius: 16px;
+    width: 100%;
+    gap: 12px;
+  }
+  body.mobile-view nav a {
+    width: 100%;
+    text-align: center;
+  }
+  body.mobile-view .hero h1 {
+    font-size: 1.8rem;
+  }
+  body.mobile-view .book-card {
+    max-width: 100%;
+  }
+
+  body.desktop-view .book-card {
+    max-width: 500px;
+  }
+  body.desktop-view nav {
+    flex-direction: row;
+  }
 </style>
 </head>
 <body class="light">
@@ -1315,6 +1343,23 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // ── Smart Device Detection ──
+  function detectDevice() {
+    // Detect mobile based on user agent or screen width
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    
+    if (isMobile) {
+      document.body.classList.add('mobile-view');
+      document.body.classList.remove('desktop-view');
+    } else {
+      document.body.classList.add('desktop-view');
+      document.body.classList.remove('mobile-view');
+    }
+  }
+
+  // Initialize device detection
+  window.addEventListener('DOMContentLoaded', detectDevice);
+  window.addEventListener('resize', detectDevice);
 </script>
 </body>
 </html>
