@@ -755,6 +755,21 @@
     font-size: 0.9rem;
     margin-bottom: 8px;
     word-break: break-all;
+    line-height: 1.4;
+  }
+  .card-desc {
+    color: var(--muted);
+    font-size: 0.88rem;
+    display: block;
+    margin-top: -18px;
+    margin-bottom: 24px;
+  }
+  .code-label {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-bottom: 4px;
+    color: var(--text);
   }
   .book-card .cred-box code:last-child { margin-bottom: 0; }
   body.light .book-card {
@@ -989,7 +1004,8 @@
         <div class="tag">الصف التاسع — STEM</div>
         <div class="card-icon">🔬</div>
         <h3>الكتاب الإلكتروني لمادة STEM</h3>
-        <p>منصة Pasco Education — نافذة تعلّم علمية متكاملة</p>
+        <p>منصة Pasco Education</p>
+        <span class="card-desc">نافذة تعلّم علمية متكاملة</span>
         <a href="https://education.pasco.com/epub/Qatar/Student/" class="btn-modern" target="_blank">فتح الكتاب ↗</a>
         <div class="cred-box">
           <div class="label">🔑 رمز الدخول</div>
@@ -1001,17 +1017,18 @@
         <div class="tag">الصف السابع — العلوم والرياضيات</div>
         <div class="card-icon">📐</div>
         <h3>كتب الرياضيات والعلوم</h3>
-        <p>منصة McGraw-Hill Education — وصول مباشر للكتب</p>
+        <p>منصة McGraw-Hill Education</p>
+        <span class="card-desc">وصول مباشر للكتب الدراسية</span>
         <a href="https://my.mheducation.com" class="btn-modern" target="_blank">دخول للمنصة ↗</a>
         <div class="cred-box">
           <div class="label">🔬 العلوم — Science</div>
-          <code>المستخدم: Intl_Science68SE</code>
-          <code>المرور: Inspire68Se</code>
+          <code><span class="code-label">المستخدم:</span>Intl_Science68SE</code>
+          <code><span class="code-label">المرور:</span>Inspire68Se</code>
         </div>
         <div class="cred-box" style="margin-top:10px;">
           <div class="label">📐 الرياضيات — Math</div>
-          <code>المستخدم: Intl_RevealMath68SE</code>
-          <code>المرور: Math25se68</code>
+          <code><span class="code-label">المستخدم:</span>Intl_RevealMath68SE</code>
+          <code><span class="code-label">المرور:</span>Math25se68</code>
         </div>
       </div>
 
