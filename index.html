@@ -563,6 +563,107 @@
     border-color: rgba(255,255,255,0.4);
     background: rgba(255,255,255,0.1);
   }
+  /* ── Modern Book Cards ── */
+  .book-card {
+    background: linear-gradient(145deg, var(--card-bg), transparent);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .book-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: var(--gradient);
+  }
+  .book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  .book-card h3 {
+    font-size: 1.4rem;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .book-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .btn-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient);
+    color: #fff !important;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    align-self: flex-start;
+  }
+  .btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+    filter: brightness(1.1);
+  }
+  .book-card .cred-box {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 18px;
+    margin-top: auto;
+    backdrop-filter: blur(10px);
+  }
+  .book-card .cred-box .label {
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .book-card .cred-box code {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #38bdf8;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: block;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+  .book-card .cred-box code:last-child { margin-bottom: 0; }
+  body.light .book-card {
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  body.light .book-card .cred-box {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+  }
+  body.light .book-card .cred-box code {
+    background: rgba(0,0,0,0.05);
+    color: #0284c7;
+    border-color: rgba(0,0,0,0.1);
+  }
 </style>
 </head>
 <body class="light">
@@ -778,35 +879,33 @@
     <p class="section-sub reveal">روابط الدخول للكتب الرسمية مع بيانات الاعتماد</p>
     <div class="grid">
 
-      <div class="card reveal">
+      <div class="book-card reveal">
         <div class="tag">الصف التاسع — STEM</div>
         <div class="card-icon">🔬</div>
         <h3>الكتاب الإلكتروني لمادة STEM</h3>
         <p>منصة Pasco Education — نافذة تعلّم علمية متكاملة</p>
-        <br>
-        <a href="https://education.pasco.com/epub/Qatar/Student/" target="_blank">فتح الكتاب ↗</a>
+        <a href="https://education.pasco.com/epub/Qatar/Student/" class="btn-modern" target="_blank">فتح الكتاب ↗</a>
         <div class="cred-box">
           <div class="label">🔑 رمز الدخول</div>
           <code>IN995750767-QSM-SB-1228-JXNA6</code>
         </div>
       </div>
 
-      <div class="card reveal">
+      <div class="book-card reveal">
         <div class="tag">الصف السابع — العلوم والرياضيات</div>
         <div class="card-icon">📐</div>
         <h3>كتب الرياضيات والعلوم</h3>
-        <p>منصة McGraw-Hill Education</p>
-        <br>
-        <a href="https://my.mheducation.com" target="_blank">my.mheducation.com ↗</a>
+        <p>منصة McGraw-Hill Education — وصول مباشر للكتب</p>
+        <a href="https://my.mheducation.com" class="btn-modern" target="_blank">دخول للمنصة ↗</a>
         <div class="cred-box">
           <div class="label">🔬 العلوم — Science</div>
-          <code>اسم المستخدم: Intl_Science68SE</code>
-          <code>كلمة المرور: Inspire68Se</code>
+          <code>المستخدم: Intl_Science68SE</code>
+          <code>المرور: Inspire68Se</code>
         </div>
         <div class="cred-box" style="margin-top:10px;">
           <div class="label">📐 الرياضيات — Math</div>
-          <code>اسم المستخدم: Intl_RevealMath68SE</code>
-          <code>كلمة المرور: Math25se68</code>
+          <code>المستخدم: Intl_RevealMath68SE</code>
+          <code>المرور: Math25se68</code>
         </div>
       </div>
 
