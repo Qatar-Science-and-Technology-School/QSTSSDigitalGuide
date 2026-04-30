@@ -12,11 +12,11 @@
     --primary: #1a3a6e;
     --secondary: #0ea5e9;
     --accent: #f59e0b;
-    --bg: #4169E1;
+    --bg: #0B192C;
     --card-bg: rgba(255,255,255,0.05);
     --glass: rgba(255,255,255,0.08);
-    --text: #e2e8f0;
-    --muted: #94a3b8;
+    --text: #ffffff;
+    --muted: #f8fafc;
     --gradient: linear-gradient(135deg, #1a3a6e 0%, #0ea5e9 100%);
     --nav-bg: rgba(15,23,42,.85);
     --border: rgba(255,255,255,.06);
@@ -97,6 +97,13 @@
   }
   .stem-icon:nth-child(even) svg { fill: var(--primary); }
   .stem-icon:nth-child(3n) svg { fill: var(--accent); }
+
+  body:not(.light) .stem-icon svg,
+  body:not(.light) .stem-icon svg * {
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+  }
 
   @keyframes stemFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -543,6 +550,18 @@
     .contact-card { padding: 28px 20px; }
     .logos-bar { padding: 12px 16px; }
     .logos-bar img { height: 48px; }
+  }
+
+  /* ── Dark Mode Whites ── */
+  body:not(.light) .cred-box .label,
+  body:not(.light) .gen-card .gi-label,
+  body:not(.light) .hero-badge,
+  body:not(.light) .contact-tbl td .dept {
+    color: #ffffff;
+  }
+  body:not(.light) .hero-badge {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.1);
   }
 </style>
 </head>
