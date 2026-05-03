@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "qstssdg"
-  }
+  },
+  "targets": {
+    "qstssdg": {
+      "hosting": {
+        "main": [
+          "qstssdg"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
