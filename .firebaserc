@@ -1,15 +1,5 @@
 {
   "projects": {
-    "default": "qstssdg-ed92e"
-  },
-  "targets": {
-    "qstssdg": {
-      "hosting": {
-        "main": [
-          "qstssdg"
-        ]
-      }
-    }
-  },
-  "etags": {}
+    "default": "qstssschools"
+  }
 }

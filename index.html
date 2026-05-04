@@ -1823,6 +1823,26 @@
     window.addEventListener('DOMContentLoaded', detectDevice);
     window.addEventListener('resize', detectDevice);
   </script>
+
+  <!-- Firebase SDK and Analytics -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOolbN4EcuJ5MTTmtm4bLaIK1xER1yGnw",
+      authDomain: "qstssschools.firebaseapp.com",
+      projectId: "qstssschools",
+      storageBucket: "qstssschools.firebasestorage.app",
+      messagingSenderId: "1071005401632",
+      appId: "1:1071005401632:web:51529ced432db906baf245",
+      measurementId: "G-7T7NDF4DGL"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    console.log("Firebase initialized");
+  </script>
 </body>
 
 </html>
